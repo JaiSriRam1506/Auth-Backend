@@ -1,6 +1,7 @@
 const express = require("express"); //Machine purchase kiya bazar se
 const cookieParser = require("cookie-parser");
 const apiRoutes = require("./routes");
+const { ServerConfig } = require("./config");
 //Check the diff between require and import
 
 const app = express(); // machine ko fit krke electricity diya
@@ -26,11 +27,11 @@ app.get("/getInfoData", (req, res) => {
 app.use("/api", apiRoutes);
 
 //jb washing machine start hojaye tb kpada dho lo
-app.listen(4000, (err) => {
+app.listen(ServerConfig.PORT, (err) => {
   if (err) {
     console.log("Error has been occured:", err);
   }
-  console.log("Server has started successfully in 4000 port");
+  console.log(`Server has started successfully in ${ServerConfig.PORT} port`);
 });
 
 // http://localhost:4000/api/v1/user/getInfo
