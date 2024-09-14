@@ -7,6 +7,7 @@ function createToken(input) {
     const token = jwt.sign(input, ServerConfig.JWT_SECRET, {
       expiresIn: ServerConfig.JWT_EXPIRY,
     });
+    return token;
   } catch (error) {
     console.log("Error has been occurred while creating token:", error);
     throw error;
